@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+</head>
+<body style="  max-width: 400px;
+margin: auto;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <!-- <div >
+    <mat-progress-bar  mode="indeterminate"></mat-progress-bar>
+</div> -->
+    <h1>Employee Registration</h1>
+    <form class="form-group">
+      <label for="exampleInputEmail1">Enter Name</label>
+    <input class="form-control mt-2" type="text" [(ngModel)]="empname" [ngModelOptions]="{standalone:true}" name="name" placeholder="Employee Name" required><br>
+    <label for="exampleInputEmail1">Enter Designation</label>
+    <input class="form-control mt-2" type="text" [(ngModel)]="empemail" [ngModelOptions]="{standalone:true}" name="designation" placeholder="designation" required><br>
+    
+    
+
+    <button class="btn btn-info mt-2"  (click)="save()">Save</button><br>
+</form>
+    <!-- <mat-form-field>
+        <mat-label>Message</mat-label>
+        <input matInput value="Disco party!" #message>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Action</mat-label>
+        <input matInput value="Dance" #action>
+      </mat-form-field>
+      <div>
+      
+
+      <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
+    </div>
+      {{data | json}} -->
+</body>
+</html>

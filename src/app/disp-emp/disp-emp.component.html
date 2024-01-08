@@ -1,0 +1,49 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Designation</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let empdetails of employees">
+        <tr>
+            <td>{{empdetails.id}}</td>
+            <td>{{empdetails.name}}</td>
+            <td>{{empdetails.designation}}</td>
+            <td><button class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter"  (click)="editEmp(empdetails)">Edit</button></td>
+            <td><button class="btn btn-danger" (click)="deleteEmp(empdetails.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Edit Employee Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+        <div class="modal-body">
+            
+                <input class="mt-2" type="text" [(ngModel)]="editEmpDetails.name" [ngModelOptions]="{standalone:true}" name="name" placeholder="Employee Name"><br>
+                <input class="mt-2" type="text" [(ngModel)]="editEmpDetails.designation" [ngModelOptions]="{standalone:true}" name="designation" placeholder="designation"><br>
+
+            
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="finalUpdateEmp()">Save changes</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+  

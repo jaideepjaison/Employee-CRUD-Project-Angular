@@ -1,0 +1,22 @@
+<h2>Hi Sales List</h2>
+
+<table class="table">
+    <thead class="table-dark">
+        <td>First name</td>
+        <td>Last name</td>
+        <td>Salary</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mylistnew of mylist">
+        <td>{{mylistnew.fname}}</td>
+        <td>{{mylistnew.lname}}</td>
+        <td>{{mylistnew.salary | currency:'INR'}}</td>
+        <td>
+        <div *ngIf="mylistnew.salary>=3000; else myElseBlock">Yes</div>
+        <ng-template #myElseBlock>No</ng-template>
+    </td>
+            
+        
+        </tr>
+    </tbody>
+</table>
