@@ -23,7 +23,7 @@ export class DispEmpComponent {
 
   getEmployeeDetails()
   {
-    this.http.get("http://localhost:8080/api/employees").subscribe((resultData: any)=>
+    this.http.get("https://employeecrud-springboot-production.up.railway.app").subscribe((resultData: any)=>
     {
         console.log(resultData);
         this.employees=resultData;
@@ -35,7 +35,7 @@ export class DispEmpComponent {
   {
     console.log("employees.id"+id);
     
-    this.http.delete("http://localhost:8080/api/employees/"+id).subscribe((resultData: any)=>
+    this.http.delete("https://employeecrud-springboot-production.up.railway.app/"+id).subscribe((resultData: any)=>
     {
         console.log(resultData);
         this.getEmployeeDetails();
@@ -50,7 +50,7 @@ export class DispEmpComponent {
   finalUpdateEmp(){
     console.log("Inside final Update");
     
-    this.http.put("http://localhost:8080/api/employees/"+this.editEmpDetails.id,this.editEmpDetails,{responseType: 'text'}).subscribe((resultData: any)=>
+    this.http.put("https://employeecrud-springboot-production.up.railway.app/"+this.editEmpDetails.id,this.editEmpDetails,{responseType: 'text'}).subscribe((resultData: any)=>
     {
         console.log(resultData);
         this.getEmployeeDetails();
