@@ -57,7 +57,7 @@ export class DispEmpComponent {
     });
   }
   setEmployeeData() {
-   
+    
     this.sharedService.setEmployeeData(this.getEmployeeDetails());
   }
 
