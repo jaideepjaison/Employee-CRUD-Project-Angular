@@ -8,7 +8,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-prime-number',
@@ -23,9 +23,14 @@ export class PrimeNumberComponent {
   empname:string="";
   empemail:string="";
   _snackBar: any;
+  employeeData: any;
 
-  constructor(private http: HttpClient )
+  constructor(private http: HttpClient,private sharedService: SharedService )
   {
+  }
+  getEmployeeData() {
+    console.log("Inside getEmployee from prime number");
+    this.employeeData = this.sharedService.getEmployeeData();
   }
   save()
   {
@@ -34,6 +39,7 @@ export class PrimeNumberComponent {
     {
       
         //this._snackBar.open("Enter Name and Designation", "❌");
+        this.employeeData;
         alert("Enter Name and Designation");
     }
     else{
@@ -83,4 +89,8 @@ export class PrimeNumberComponent {
   function openSnackBar(message: any, string: any, action: any, string1: any) {
     throw new Error('Function not implemented.');
   }
+
+function getEmployeeData() {
+  throw new Error('Function not implemented.');
+}
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-disp-emp',
@@ -16,11 +16,11 @@ export class DispEmpComponent {
     "designation": ""
   };
 
-  constructor(private http: HttpClient )
+  constructor(private http: HttpClient,private sharedService: SharedService )
   {
     this.getEmployeeDetails();
   }
-
+  
   getEmployeeDetails()
   {
     this.http.get("https://employeecrud-springboot-production.up.railway.app").subscribe((resultData: any)=>
@@ -55,6 +55,10 @@ export class DispEmpComponent {
         console.log(resultData);
         this.getEmployeeDetails();
     });
+  }
+  setEmployeeData() {
+   
+    this.sharedService.setEmployeeData(this.getEmployeeDetails());
   }
 
 }
