@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+
 import { SharedService } from '../shared.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-disp-emp',
@@ -16,7 +17,7 @@ export class DispEmpComponent {
     "designation": ""
   };
 
-  constructor(private http: HttpClient,private sharedService: SharedService )
+  constructor(private http: HttpClient )
   {
     this.getEmployeeDetails();
   }
@@ -56,9 +57,6 @@ export class DispEmpComponent {
         this.getEmployeeDetails();
     });
   }
-  setEmployeeData() {
-    
-    this.sharedService.setEmployeeData(this.getEmployeeDetails());
-  }
+  
 
 }

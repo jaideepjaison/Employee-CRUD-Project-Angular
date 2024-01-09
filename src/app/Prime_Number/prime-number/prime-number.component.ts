@@ -8,7 +8,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { SharedService } from 'src/app/shared.service';
+
 
 @Component({
   selector: 'app-prime-number',
@@ -25,10 +25,20 @@ export class PrimeNumberComponent {
   _snackBar: any;
   employeeData: any;
 
-  constructor(private http: HttpClient,private sharedService: SharedService )
+  constructor(private http: HttpClient )
   {
   }
- 
+  employees=null;
+  getEmployeeDetails()
+  {
+    this.http.get("https://employeecrud-springboot-production.up.railway.app").subscribe((resultData: any)=>
+    {
+        console.log(resultData);
+        this.employees=resultData;
+        console.log(this.employees);
+      
+    });
+  }
   save()
   {
     console.log("this.empname :"+this.empname+"mail :"+this.empemail);
@@ -36,7 +46,7 @@ export class PrimeNumberComponent {
     {
       
         //this._snackBar.open("Enter Name and Designation", "❌");
-        this.sharedService.getEmployeeData();
+       
         alert("Enter Name and Designation");
     }
     else{
@@ -49,7 +59,7 @@ export class PrimeNumberComponent {
     {
         
         console.log(resultData);
-        this.sharedService.getEmployeeData();
+        this.getEmployeeDetails();
         alert("Employee Registered Successfully");
     });
   }
@@ -85,3 +95,7 @@ export class PrimeNumberComponent {
   // }
 }
   
+function ngOnInit() {
+  throw new Error('Function not implemented.');
+}
+
