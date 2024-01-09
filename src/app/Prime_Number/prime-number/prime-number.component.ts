@@ -28,10 +28,7 @@ export class PrimeNumberComponent {
   constructor(private http: HttpClient,private sharedService: SharedService )
   {
   }
-  getEmployeeData() {
-    console.log("Inside getEmployee from prime number");
-    this.employeeData = this.sharedService.getEmployeeData();
-  }
+ 
   save()
   {
     console.log("this.empname :"+this.empname+"mail :"+this.empemail);
@@ -39,7 +36,7 @@ export class PrimeNumberComponent {
     {
       
         //this._snackBar.open("Enter Name and Designation", "❌");
-        this.employeeData;
+        this.sharedService.getEmployeeData();
         alert("Enter Name and Designation");
     }
     else{
@@ -52,6 +49,7 @@ export class PrimeNumberComponent {
     {
         
         console.log(resultData);
+        this.sharedService.getEmployeeData();
         alert("Employee Registered Successfully");
     });
   }
@@ -86,11 +84,4 @@ export class PrimeNumberComponent {
   //   this._snackBar.open(message, action);
   // }
 }
-  function openSnackBar(message: any, string: any, action: any, string1: any) {
-    throw new Error('Function not implemented.');
-  }
-
-function getEmployeeData() {
-  throw new Error('Function not implemented.');
-}
-
+  
