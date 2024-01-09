@@ -42,7 +42,7 @@ export class PrimeNumberComponent {
       "designation" : this.empemail,
       
     };
-    this.http.post("https://employeecrud-springboot-production.up.railway.app",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
+    this.http.post("https://employeecrud-springboot-production.up.railway.app/api/employees",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
     {
         
         console.log(resultData);
