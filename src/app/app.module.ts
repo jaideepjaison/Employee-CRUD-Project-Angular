@@ -20,7 +20,7 @@ import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { HttpClientModule } from '@angular/common/http';
 import { DispEmpComponent } from './disp-emp/disp-emp.component'; // Import HttpClientModule
-import { SharedService } from './shared.service';
+
 
 @NgModule({
     declarations: [
@@ -29,7 +29,7 @@ import { SharedService } from './shared.service';
         DispEmpComponent
        
     ],
-    providers: [SharedService],
+    providers: [],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule, MatProgressSpinnerModule,
