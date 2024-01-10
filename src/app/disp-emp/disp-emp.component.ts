@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 import { Component, OnInit } from '@angular/core';
-
+import { environment } from '../environments/environment';
 @Component({
   selector: 'app-disp-emp',
   templateUrl: './disp-emp.component.html',
@@ -16,7 +16,8 @@ export class DispEmpComponent {
     "name": "",
     "designation": ""
   };
-
+  isProduction = environment.production;
+   apiUrl = environment.apiUrl;
   constructor(private http: HttpClient )
   {
     this.getEmployeeDetails();
@@ -24,7 +25,7 @@ export class DispEmpComponent {
   
   getEmployeeDetails()
   {
-    this.http.get("https://employeecrud-springboot-production.up.railway.app").subscribe((resultData: any)=>
+    this.http.get(this.apiUrl).subscribe((resultData: any)=>
     {
         console.log(resultData);
         this.employees=resultData;
@@ -36,7 +37,7 @@ export class DispEmpComponent {
   {
     console.log("employees.id"+id);
     
-    this.http.delete("https://employeecrud-springboot-production.up.railway.app/"+id).subscribe((resultData: any)=>
+    this.http.delete(this.apiUrl+"/"+id).subscribe((resultData: any)=>
     {
         console.log(resultData);
         this.getEmployeeDetails();
@@ -51,7 +52,7 @@ export class DispEmpComponent {
   finalUpdateEmp(){
     console.log("Inside final Update");
     
-    this.http.put("https://employeecrud-springboot-production.up.railway.app/"+this.editEmpDetails.id,this.editEmpDetails,{responseType: 'text'}).subscribe((resultData: any)=>
+    this.http.put(this.apiUrl+"/"+this.editEmpDetails.id,this.editEmpDetails,{responseType: 'text'}).subscribe((resultData: any)=>
     {
         console.log(resultData);
         this.getEmployeeDetails();

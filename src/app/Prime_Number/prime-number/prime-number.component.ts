@@ -8,7 +8,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-prime-number',
@@ -24,6 +24,9 @@ export class PrimeNumberComponent {
   empemail:string="";
   _snackBar: any;
   employeeData: any;
+  
+  isProduction = environment.production;
+   apiUrl = environment.apiUrl; 
 
   constructor(private http: HttpClient )
   {
@@ -46,7 +49,7 @@ export class PrimeNumberComponent {
       "designation" : this.empemail,
       
     };
-    this.http.post("https://employeecrud-springboot-production.up.railway.app/api/employees",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
+    this.http.post(this.apiUrl+"/api/employees",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
     {
         
         console.log(resultData);
