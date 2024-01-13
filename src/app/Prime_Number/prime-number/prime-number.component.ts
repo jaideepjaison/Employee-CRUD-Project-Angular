@@ -26,7 +26,7 @@ export class PrimeNumberComponent {
   employeeData: any;
   
   isProduction = environment.production;
-   apiUrl = environment.apiUrl; 
+   apiUrl = "https://employeecrud-springboot-production.up.railway.app"; 
 
   constructor(private http: HttpClient )
   {

@@ -17,7 +17,7 @@ export class DispEmpComponent {
     "designation": ""
   };
   isProduction = environment.production;
-   apiUrl = environment.apiUrl;
+   apiUrl = "https://employeecrud-springboot-production.up.railway.app";
   constructor(private http: HttpClient )
   {
     this.getEmployeeDetails();
